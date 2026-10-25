@@ -1,0 +1,8 @@
+[Unit]
+Description=site-guard: проверка сайтов, SSL, диска и бэкапов
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/site-guard/monitor.py --config /etc/site-guard/site-guard.conf

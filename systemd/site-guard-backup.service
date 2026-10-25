@@ -1,0 +1,11 @@
+[Unit]
+Description=site-guard: резервная копия сайта и базы
+After=network-online.target mysql.service mariadb.service postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/site-guard/backup.sh /etc/site-guard/site-guard.conf
+# бэкап не должен тормозить сайт
+Nice=10
+IOSchedulingClass=idle

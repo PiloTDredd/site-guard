@@ -1,0 +1,11 @@
+[Unit]
+Description=site-guard: ежедневный бэкап ночью
+
+[Timer]
+OnCalendar=*-*-* 03:30
+RandomizedDelaySec=15min
+# если сервер был выключен в 03:30 — сделать бэкап после включения
+Persistent=true
+
+[Install]
+WantedBy=timers.target
